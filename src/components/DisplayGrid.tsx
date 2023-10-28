@@ -6,19 +6,18 @@ export default function DisplayGrid() {
   const { users, status } = UsersContext();
   const { handleNextPage, handlePrevPage, currentPage, perPage } =
     ScreenContext();
-  console.log("🚀 ~ file: DisplayGrid.tsx:47 ~ DisplayGrid ~ users:", users);
 
   return (
     <div className="w-full mx-5 my-10">
       {status === "success" && users && users.length > 0 && (
         <div className="w-full flex flex-col justify-center items-center">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-4 w-full">
-            {users.map((user: any) => (
+            {users.map((user: any, i: number) => (
               <a
                 href={user.html_url}
                 target="_blank"
                 rel="noopener noreferrer"
-                key={user.id}
+                key={i}
                 className="flex justify-between px-10 py-5 border-gray-300 rounded-lg border m-5 align-middle items-center hover:scale-105 cursor-pointer transition-all hover:bg-gradient-to-bl hover:from-stone-700"
               >
                 <img
