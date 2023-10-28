@@ -11,7 +11,7 @@ export async function searchUsers({
   cancelToken: any;
 }) {
   const response = await fetch(
-    `https://git-users-be-n22v.vercel.app/api/searchUsers?searchText=${searchText}&currentPage=${currentPage}&perPage=${perPage}`,
+    `https://git-users-be-git-main-prajwals-projects-f720f3ee.vercel.app/api/searchUsers?searchText=${searchText}&currentPage=${currentPage}&perPage=${perPage}`,
     {
       method: "GET",
       headers: {
@@ -37,7 +37,7 @@ export async function getRandomUsers({
   cancelToken: any;
 }) {
   const response = await fetch(
-    `https://git-users-be-n22v.vercel.app/api/randomUsers?currentPage=${currentPage}&perPage=${perPage}`,
+    `https://git-users-be-git-main-prajwals-projects-f720f3ee.vercel.app/api/randomUsers?currentPage=${currentPage}&perPage=${perPage}`,
     {
       method: "GET",
       headers: {
