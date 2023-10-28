@@ -12,7 +12,7 @@ export async function searchUsers({
 }) {
   console.log("🚀 ~ file: users.ts:13 ~ searchText:", searchText);
   const response = await fetch(
-    `http://localhost:3000/api/searchUsers?searchText=${searchText}&currentPage=${currentPage}&perPage=${perPage}`,
+    `git-users-be-n22v.vercel.app/api/searchUsers?searchText=${searchText}&currentPage=${currentPage}&perPage=${perPage}`,
     {
       method: "GET",
       headers: {
@@ -38,7 +38,7 @@ export async function getRandomUsers({
   cancelToken: any;
 }) {
   const response = await fetch(
-    `http://localhost:3000/api/randomUsers?currentPage=${currentPage}&perPage=${perPage}`,
+    `git-users-be-n22v.vercel.app/api/randomUsers?currentPage=${currentPage}&perPage=${perPage}`,
     {
       method: "GET",
       headers: {
