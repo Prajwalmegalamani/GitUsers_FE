@@ -6,7 +6,7 @@ import { useMutation } from "react-query";
 
 export default function SearchBox() {
   const [searchText, setSearchText] = useState<string>("");
-  const { perPage, currentPage, setCurrentPage } = ScreenContext();
+  const { perPage, currentPage, setCurrentPage, mediaQuery } = ScreenContext();
   const {
     users,
     setUsers,
@@ -45,6 +45,28 @@ export default function SearchBox() {
     setUsers([]);
   }, [searchText]);
 
+  useEffect(() => {
+    controllerRef.current = new AbortController();
+
+    searchText === "" &&
+      users.length === 0 &&
+      mediaQuery &&
+      setTimeout(() => {
+        setStatus("random");
+      }, 4500);
+
+    searchText === "" &&
+      users.length === 0 &&
+      mediaQuery &&
+      setTimeout(() => {
+        mFetchRandomUsers({
+          currentPage: currentPage,
+          perPage: perPage,
+          cancelToken: controllerRef?.current?.signal,
+        });
+      }, 5000);
+  }, [mediaQuery]);
+
   // check if the search text is of min chars
   useEffect(() => {
     if (searchText.length > searchMinChars) {
@@ -81,11 +103,11 @@ export default function SearchBox() {
   const { mutate: mFetchRandomUsers } = useMutation(getRandomUsers, {
     onSuccess: (data: any) => {
       setUsers(data);
-      clearTimeout(timeout.current);
+      // clearTimeout(timeout.current);
       setStatus("success");
     },
     onError: (error: any) => {
-      clearTimeout(timeout.current);
+      // clearTimeout(timeout.current);
       if (error.toString().includes("aborted")) {
         setStatus("cancelled");
       } else {
@@ -130,8 +152,16 @@ export default function SearchBox() {
               </button>
             </div>
           )}
+          {searchText.length > 0 && searchText.length < 3 && (
+            <div className="text-white">
+              Minimum 3 characters are required to search
+            </div>
+          )}
           {status === "error" && (
             <div className="text-white">Oops something went wrong</div>
+          )}
+          {status === "random" && (
+            <div className="text-white">Getting random users</div>
           )}
           {status === "success" &&
             users.length === 0 &&
@@ -146,5 +176,4 @@ export default function SearchBox() {
   );
 }
 
-//total length check for pagination
-//randaom users
+//to-do: randaom users

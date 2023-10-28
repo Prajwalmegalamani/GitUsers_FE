@@ -3,7 +3,6 @@ import { QueryClient, QueryClientProvider } from "react-query";
 import SearchBox from "../components/SearchBox";
 import { ScreenContext, ScreenSizeProvider } from "@/hooks/useScreenSize";
 import { UsersProvider } from "@/hooks/useUsersContext";
-import AnimatedCursor from "react-animated-cursor";
 import DisplayGrid from "@/components/DisplayGrid";
 
 export default function Home() {
