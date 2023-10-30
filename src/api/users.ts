@@ -1,3 +1,5 @@
+import { API_URL } from "@/utils/constants";
+
 //Get gitusers by name(search)
 export async function searchUsers({
   searchText,
@@ -11,7 +13,7 @@ export async function searchUsers({
   cancelToken: any;
 }) {
   const response = await fetch(
-    `https://git-users-be.vercel.app/api/searchUsers?searchText=${searchText}&currentPage=${currentPage}&perPage=${perPage}`,
+    `${API_URL}/api/searchUsers?searchText=${searchText}&currentPage=${currentPage}&perPage=${perPage}`,
     {
       method: "GET",
       headers: {
@@ -37,7 +39,7 @@ export async function getRandomUsers({
   cancelToken: any;
 }) {
   const response = await fetch(
-    `https://git-users-be.vercel.app/api/randomUsers?currentPage=${currentPage}&perPage=${perPage}`,
+    `${API_URL}/api/randomUsers?currentPage=${currentPage}&perPage=${perPage}`,
     {
       method: "GET",
       headers: {
