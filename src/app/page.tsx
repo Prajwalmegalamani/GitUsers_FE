@@ -8,8 +8,6 @@ import DisplayGrid from "@/components/DisplayGrid";
 export default function Home() {
   const queryClient = new QueryClient();
 
-  
-
   return (
     <QueryClientProvider client={queryClient}>
       {/* React query provider */}
