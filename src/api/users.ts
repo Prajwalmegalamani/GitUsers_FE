@@ -17,7 +17,7 @@ export async function searchUsers({
     {
       method: "GET",
       headers: {
-        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Origin": "https://git-users-fe.vercel.app/",
         "Content-Type": "application/json",
       },
       signal: cancelToken,
@@ -44,7 +44,7 @@ export async function getRandomUsers({
     {
       method: "GET",
       headers: {
-        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Origin": "https://git-users-fe.vercel.app/",
         "Content-Type": "application/json",
       },
       signal: cancelToken,
