@@ -1,1 +1,1 @@
-export const API_URL = "https://git-users-be-cors.vercel.app/";
+export const API_URL = "https://git-users-be.vercel.app/";
