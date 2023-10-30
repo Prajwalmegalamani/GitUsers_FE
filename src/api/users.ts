@@ -17,6 +17,7 @@ export async function searchUsers({
     {
       method: "GET",
       headers: {
+        "Access-Control-Allow-Origin": "*",
         "Content-Type": "application/json",
       },
       signal: cancelToken,
@@ -43,6 +44,7 @@ export async function getRandomUsers({
     {
       method: "GET",
       headers: {
+        "Access-Control-Allow-Origin": "*",
         "Content-Type": "application/json",
       },
       signal: cancelToken,
